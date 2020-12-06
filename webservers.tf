@@ -1,3 +1,4 @@
+#Create WebServers in Private Subnets Debian 10 t2.micro
 resource "aws_instance" "WebServerA" {
   ami                    = "ami-0cf5095664e10bcb5"
   instance_type          = "t2.micro"
