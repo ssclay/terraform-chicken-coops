@@ -32,8 +32,8 @@ resource "aws_route_table" "RTPublicB" {
 resource "aws_route_table" "RTPrivateA" {
   vpc_id = aws_vpc.Hutch1.id
   route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.NATGWA.id
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.NATGWA.id
   }
   tags = {
     Name = "RTPrivateA"
@@ -46,8 +46,8 @@ resource "aws_route_table" "RTPrivateA" {
 resource "aws_route_table" "RTPrivateB" {
   vpc_id = aws_vpc.Hutch1.id
   route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.NATGWB.id
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.NATGWB.id
   }
 
   tags = {
