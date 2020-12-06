@@ -23,7 +23,7 @@ resource "aws_lb_listener" "LBEAR" {
 
 #Add Target Groups to ELB
 resource "aws_lb_target_group" "WebServers" {
-  name        = "WebServer-tg"
+  name        = "WebServers"
   target_type = "instance"
   port        = 80
   protocol    = "HTTP"
