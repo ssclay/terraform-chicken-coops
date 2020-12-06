@@ -6,6 +6,7 @@ resource "aws_instance" "Bastion" {
   subnet_id                   = aws_subnet.PublicA.id
   vpc_security_group_ids      = [aws_security_group.BastionSG.id]
   associate_public_ip_address = true
+  key_name                    = "RR2020-2"
   tags = {
     Name = "Bastion"
   }
