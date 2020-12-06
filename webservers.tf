@@ -5,6 +5,11 @@ resource "aws_instance" "WebServerA" {
   availability_zone      = "us-west-2a"
   subnet_id              = aws_subnet.PrivateA.id
   vpc_security_group_ids = [aws_security_group.EC2SG.id]
+  user_data              = <<EOF
+                            #!/bin/bash
+                            apt-get update -y
+                            apt-get install nginx -y
+                            EOF
   tags = {
     Name = "WebServerA"
   }
@@ -17,6 +22,11 @@ resource "aws_instance" "WebServerB" {
   availability_zone      = "us-west-2b"
   subnet_id              = aws_subnet.PrivateB.id
   vpc_security_group_ids = [aws_security_group.EC2SG.id]
+  user_data              = <<EOF
+                            #!/bin/bash
+                            apt-get update -y
+                            apt-get install nginx -y
+                            EOF
   tags = {
     Name = "WebServerB"
   }
