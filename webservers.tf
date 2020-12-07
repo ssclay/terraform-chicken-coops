@@ -2,7 +2,7 @@
 resource "aws_instance" "WebServerA" {
   ami                    = "ami-0cf5095664e10bcb5"
   instance_type          = "t2.micro"
-  availability_zone      = "us-west-2a"
+  availability_zone      = data.aws_availability_zones.available.names[0]
   subnet_id              = aws_subnet.PrivateA.id
   vpc_security_group_ids = [aws_security_group.EC2SG.id]
   user_data              = <<-EOF
@@ -21,7 +21,7 @@ resource "aws_instance" "WebServerA" {
 resource "aws_instance" "WebServerB" {
   ami                    = "ami-0cf5095664e10bcb5"
   instance_type          = "t2.micro"
-  availability_zone      = "us-west-2b"
+  availability_zone      = data.aws_availability_zones.available.names[1]
   subnet_id              = aws_subnet.PrivateB.id
   vpc_security_group_ids = [aws_security_group.EC2SG.id]
   user_data              = <<-EOF
