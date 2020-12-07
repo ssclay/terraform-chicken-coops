@@ -30,7 +30,7 @@ resource "aws_network_acl" "ACLPrivate" {
   }
 
   tags = {
-    Name = "ACLPrivate"
+    Name = "${var.vpc_name}-ACLPrivate"
   }
 
 }
@@ -67,7 +67,7 @@ resource "aws_network_acl" "ACLPublic" {
   }
 
   tags = {
-    Name = "ACLPublic"
+    Name = "${var.vpc_name}-ACLPublic"
   }
 
 }
