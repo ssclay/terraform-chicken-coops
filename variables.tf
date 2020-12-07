@@ -15,3 +15,7 @@ variable "vpc_name" {
   type    = string
   default = "hutch"
 }
+
+variable "ami_name" {
+  type = string
+}
