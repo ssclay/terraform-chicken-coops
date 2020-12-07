@@ -19,7 +19,6 @@ This repo creates a VPC with 4 subnets (2 Private, 2 Public, spread across 2 ava
 1. go to your aws console and check out what gets built.
 
 ###### TODO
-1. Add nice bash script for user_data input.
 1. Apply best practices to Access control lists and security groups.
 1. Use actual IAM roles
 1. Be able to deal with different keys.
