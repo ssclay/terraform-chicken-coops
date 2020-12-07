@@ -11,4 +11,5 @@ terraform {
 #Where the keys should go.
 provider "aws" {
   region = "us-west-2"
+
 }

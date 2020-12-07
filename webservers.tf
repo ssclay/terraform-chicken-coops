@@ -10,6 +10,8 @@ resource "aws_instance" "WebServerA" {
                             apt-get update -y
                             apt-get install nginx -y
                             EOF
+  key_name               = "RR2020-2"
+
   tags = {
     Name = "WebServerA"
   }
@@ -27,6 +29,8 @@ resource "aws_instance" "WebServerB" {
                             apt-get update -y
                             apt-get install nginx -y
                             EOF
+  key_name               = "RR2020-2"
+
   tags = {
     Name = "WebServerB"
   }
