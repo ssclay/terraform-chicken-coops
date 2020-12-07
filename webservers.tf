@@ -1,6 +1,6 @@
 #Create WebServers in Private Subnets Debian 10 t2.micro
 resource "aws_instance" "WebServerA" {
-  ami                    = "ami-0cf5095664e10bcb5"
+  ami                    = data.aws_ami.debian10.id
   instance_type          = "t2.micro"
   availability_zone      = data.aws_availability_zones.available.names[0]
   subnet_id              = aws_subnet.PrivateA.id
@@ -19,7 +19,7 @@ resource "aws_instance" "WebServerA" {
 }
 
 resource "aws_instance" "WebServerB" {
-  ami                    = "ami-0cf5095664e10bcb5"
+  ami                    = data.aws_ami.debian10.id
   instance_type          = "t2.micro"
   availability_zone      = data.aws_availability_zones.available.names[1]
   subnet_id              = aws_subnet.PrivateB.id
