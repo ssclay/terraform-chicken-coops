@@ -19,3 +19,11 @@ variable "vpc_name" {
 variable "ami_name" {
   type = string
 }
+
+variable "instance_size" {
+  type = string
+}
+
+variable "key_name" {
+  type = string
+}
