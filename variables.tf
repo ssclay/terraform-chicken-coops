@@ -10,3 +10,8 @@ variable "vpc_cidr" {
 variable "subnet_cidrs" {
   type = list(string)
 }
+
+variable "vpc_name" {
+  type    = string
+  default = "hutch"
+}

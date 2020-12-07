@@ -2,14 +2,14 @@
 resource "aws_security_group" "EC2SG" {
   name        = "EC2SG"
   description = "Security Group for the EC2 WebServers in Private Subnet"
-  vpc_id      = aws_vpc.Hutch1.id
+  vpc_id      = aws_vpc.myvpc.id
 
   ingress {
     description = "HTTP"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = [aws_vpc.Hutch1.cidr_block]
+    cidr_blocks = [aws_vpc.myvpc.cidr_block]
   }
 
   ingress {
@@ -17,7 +17,7 @@ resource "aws_security_group" "EC2SG" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [aws_vpc.Hutch1.cidr_block]
+    cidr_blocks = [aws_vpc.myvpc.cidr_block]
   }
 
   egress {
@@ -37,7 +37,7 @@ resource "aws_security_group" "EC2SG" {
 resource "aws_security_group" "ELBSG" {
   name        = "ELBSG"
   description = "Security Group for the ELB in Public Subnet"
-  vpc_id      = aws_vpc.Hutch1.id
+  vpc_id      = aws_vpc.myvpc.id
 
   ingress {
     description = "HTTP"
@@ -72,7 +72,7 @@ resource "aws_security_group" "ELBSG" {
 resource "aws_security_group" "BastionSG" {
   name        = "BastionSG"
   description = "Security Group for the Bastion"
-  vpc_id      = aws_vpc.Hutch1.id
+  vpc_id      = aws_vpc.myvpc.id
 
   ingress {
     description = "HTTP"

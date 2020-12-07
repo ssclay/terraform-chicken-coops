@@ -27,6 +27,6 @@ resource "aws_lb_target_group" "WebServers" {
   target_type = "instance"
   port        = 80
   protocol    = "HTTP"
-  vpc_id      = aws_vpc.Hutch1.id
+  vpc_id      = aws_vpc.myvpc.id
 
 }
