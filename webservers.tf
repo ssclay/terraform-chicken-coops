@@ -13,7 +13,7 @@ resource "aws_instance" "WebServerA" {
   key_name               = var.key_name
 
   tags = {
-    Name = "WebServerA"
+    Name = "${var.vpc_name}-WebServerA"
   }
 
 }
@@ -32,7 +32,7 @@ resource "aws_instance" "WebServerB" {
   key_name               = var.key_name
 
   tags = {
-    Name = "WebServerB"
+    Name = "${var.vpc_name}-WebServerB"
   }
 
 }

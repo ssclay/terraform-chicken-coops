@@ -1,7 +1,7 @@
 #Create the Elastic Load Balancer to point the outside 
 #to the private webserver
 resource "aws_lb" "ELB" {
-  name               = "ELB"
+  name               = "${var.vpc_name}-ELB"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.ELBSG.id]
@@ -23,7 +23,7 @@ resource "aws_lb_listener" "Listener" {
 
 #Add Target Groups to ELB
 resource "aws_lb_target_group" "WebServers" {
-  name        = "WebServers"
+  name        = "${var.vpc_name}-WebServers"
   target_type = "instance"
   port        = 80
   protocol    = "HTTP"

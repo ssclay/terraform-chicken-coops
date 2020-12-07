@@ -5,7 +5,7 @@ resource "aws_subnet" "PrivateA" {
   availability_zone = data.aws_availability_zones.available.names[0]
   cidr_block        = var.subnet_cidrs[0]
   tags = {
-    Name = "PrivateA"
+    Name = "${var.vpc_name}-PrivateA"
   }
 }
 
@@ -14,7 +14,7 @@ resource "aws_subnet" "PrivateB" {
   availability_zone = data.aws_availability_zones.available.names[1]
   cidr_block        = var.subnet_cidrs[1]
   tags = {
-    Name = "PrivateB"
+    Name = "${var.vpc_name}-PrivateB"
   }
 }
 
@@ -23,7 +23,7 @@ resource "aws_subnet" "PublicA" {
   availability_zone = data.aws_availability_zones.available.names[0]
   cidr_block        = var.subnet_cidrs[2]
   tags = {
-    Name = "PublicA"
+    Name = "${var.vpc_name}-PublicA"
   }
 }
 
@@ -32,6 +32,6 @@ resource "aws_subnet" "PublicB" {
   availability_zone = data.aws_availability_zones.available.names[1]
   cidr_block        = var.subnet_cidrs[3]
   tags = {
-    Name = "PublicB"
+    Name = "${var.vpc_name}-PublicB"
   }
 }
