@@ -1,8 +1,8 @@
 #Create WebServers in Private Subnets Debian 10 t2.micro
 resource "aws_instance" "WebServerA" {
-  ami                    = "ami-0cf5095664e10bcb5"
-  instance_type          = "t2.micro"
-  availability_zone      = "us-west-2a"
+  ami                    = data.aws_ami.debian10.id
+  instance_type          = var.instance_size
+  availability_zone      = data.aws_availability_zones.available.names[0]
   subnet_id              = aws_subnet.PrivateA.id
   vpc_security_group_ids = [aws_security_group.EC2SG.id]
   user_data              = <<-EOF
@@ -10,7 +10,7 @@ resource "aws_instance" "WebServerA" {
                             apt-get update -y
                             apt-get install nginx -y
                             EOF
-  key_name               = "RR2020-2"
+  key_name               = var.key_name
 
   tags = {
     Name = "WebServerA"
@@ -19,9 +19,9 @@ resource "aws_instance" "WebServerA" {
 }
 
 resource "aws_instance" "WebServerB" {
-  ami                    = "ami-0cf5095664e10bcb5"
-  instance_type          = "t2.micro"
-  availability_zone      = "us-west-2b"
+  ami                    = data.aws_ami.debian10.id
+  instance_type          = var.instance_size
+  availability_zone      = data.aws_availability_zones.available.names[1]
   subnet_id              = aws_subnet.PrivateB.id
   vpc_security_group_ids = [aws_security_group.EC2SG.id]
   user_data              = <<-EOF
@@ -29,7 +29,7 @@ resource "aws_instance" "WebServerB" {
                             apt-get update -y
                             apt-get install nginx -y
                             EOF
-  key_name               = "RR2020-2"
+  key_name               = var.key_name
 
   tags = {
     Name = "WebServerB"

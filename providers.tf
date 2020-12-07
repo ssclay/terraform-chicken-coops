@@ -7,9 +7,13 @@ terraform {
   }
 }
 
-
 #Where the keys should go.
 provider "aws" {
-  region = "us-west-2"
+  region = var.region
 
+}
+
+#Get Availability Zones
+data "aws_availability_zones" "available" {
+  state = "available"
 }

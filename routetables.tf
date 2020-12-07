@@ -1,6 +1,6 @@
 # #Make route tables for the Public Subnets
 resource "aws_route_table" "RTPublicA" {
-  vpc_id = aws_vpc.Hutch1.id
+  vpc_id = aws_vpc.myvpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -13,7 +13,7 @@ resource "aws_route_table" "RTPublicA" {
 }
 
 resource "aws_route_table" "RTPublicB" {
-  vpc_id = aws_vpc.Hutch1.id
+  vpc_id = aws_vpc.myvpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -30,7 +30,7 @@ resource "aws_route_table" "RTPublicB" {
 #Where the NATGWs go
 
 resource "aws_route_table" "RTPrivateA" {
-  vpc_id = aws_vpc.Hutch1.id
+  vpc_id = aws_vpc.myvpc.id
   route {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = aws_nat_gateway.NATGWA.id
@@ -44,7 +44,7 @@ resource "aws_route_table" "RTPrivateA" {
 }
 
 resource "aws_route_table" "RTPrivateB" {
-  vpc_id = aws_vpc.Hutch1.id
+  vpc_id = aws_vpc.myvpc.id
   route {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = aws_nat_gateway.NATGWB.id

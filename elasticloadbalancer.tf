@@ -1,7 +1,7 @@
 #Create the Elastic Load Balancer to point the outside 
 #to the private webserver
 resource "aws_lb" "ELB" {
-  name               = "ElasticLoadBalancer"
+  name               = "ELB"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.ELBSG.id]
@@ -9,7 +9,7 @@ resource "aws_lb" "ELB" {
 }
 
 #Add Listeners to ELB
-resource "aws_lb_listener" "LBEAR" {
+resource "aws_lb_listener" "Listener" {
   load_balancer_arn = aws_lb.ELB.arn
   port              = 80
   protocol          = "HTTP"
@@ -27,5 +27,6 @@ resource "aws_lb_target_group" "WebServers" {
   target_type = "instance"
   port        = 80
   protocol    = "HTTP"
-  vpc_id      = aws_vpc.Hutch1.id
+  vpc_id      = aws_vpc.myvpc.id
+
 }
