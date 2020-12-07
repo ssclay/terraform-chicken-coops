@@ -98,7 +98,7 @@ resource "aws_security_group" "BastionSG" {
   }
 
   tags = {
-    Name = "EC2SG"
+    Name = "BastionSG"
   }
 
 }
