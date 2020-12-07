@@ -12,6 +12,8 @@ resource "aws_instance" "WebServerA" {
                               USER_DATA
   key_name               = var.key_name
 
+  depends_on = [aws_nat_gateway.NATGWB]
+
   tags = {
     Name = "${var.vpc_name}-WebServerA"
   }
@@ -34,6 +36,9 @@ resource "aws_instance" "WebServerB" {
   tags = {
     Name = "${var.vpc_name}-WebServerB"
   }
+
+  depends_on = [aws_nat_gateway.NATGWB]
+
 
 }
 
