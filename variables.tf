@@ -7,13 +7,13 @@ variable "vpc_cidr" {
   type = string
 }
 
-variable "subnet_cidrs" {
-  type = list(string)
-}
-
 variable "vpc_name" {
   type    = string
   default = "hutch"
+}
+
+variable "subnet_cidrs" {
+  type = list(string)
 }
 
 variable "ami_name" {
