@@ -8,7 +8,7 @@ resource "aws_instance" "Bastion" {
   associate_public_ip_address = true
   key_name                    = var.key_name
   tags = {
-    Name = "Bastion"
+    Name = "${var.vpc_name}-Bastion"
   }
 
 }

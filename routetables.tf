@@ -8,7 +8,7 @@ resource "aws_route_table" "RTPublicA" {
   }
 
   tags = {
-    Name = "RTPublicA"
+    Name = "${var.vpc_name}-RTPublicA"
   }
 }
 
@@ -21,7 +21,7 @@ resource "aws_route_table" "RTPublicB" {
   }
 
   tags = {
-    Name = "RTPublicB"
+    Name = "${var.vpc_name}-RTPublicB"
   }
 
 }
@@ -36,7 +36,7 @@ resource "aws_route_table" "RTPrivateA" {
     nat_gateway_id = aws_nat_gateway.NATGWA.id
   }
   tags = {
-    Name = "RTPrivateA"
+    Name = "${var.vpc_name}-RTPrivateA"
   }
 
   depends_on = [aws_nat_gateway.NATGWA]
@@ -51,7 +51,7 @@ resource "aws_route_table" "RTPrivateB" {
   }
 
   tags = {
-    Name = "RTPrivateB"
+    Name = "${var.vpc_name}-RTPrivateB"
   }
 
   depends_on = [aws_nat_gateway.NATGWB]

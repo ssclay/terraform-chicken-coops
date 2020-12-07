@@ -16,7 +16,7 @@ resource "aws_nat_gateway" "NATGWA" {
   subnet_id     = aws_subnet.PublicA.id
 
   tags = {
-    Name = "NATGWA"
+    Name = "${var.vpc_name}-NATGWA"
   }
 
   depends_on = [aws_internet_gateway.IGW]
@@ -28,7 +28,7 @@ resource "aws_nat_gateway" "NATGWB" {
   subnet_id     = aws_subnet.PublicB.id
 
   tags = {
-    Name = "NATGWB"
+    Name = "${var.vpc_name}-NATGWB"
   }
 
   depends_on = [aws_internet_gateway.IGW]

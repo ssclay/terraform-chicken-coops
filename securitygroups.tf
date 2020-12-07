@@ -1,6 +1,6 @@
 # #Create Security Group for EC2 WebServer Instances
 resource "aws_security_group" "EC2SG" {
-  name        = "EC2SG"
+  name        = "${var.vpc_name}-EC2SG"
   description = "Security Group for the EC2 WebServers in Private Subnet"
   vpc_id      = aws_vpc.myvpc.id
 
@@ -28,14 +28,14 @@ resource "aws_security_group" "EC2SG" {
   }
 
   tags = {
-    Name = "EC2SG"
+    Name = "${var.vpc_name}-EC2SG"
   }
 
 }
 
 #Create Security Group for the ELB
 resource "aws_security_group" "ELBSG" {
-  name        = "ELBSG"
+  name        = "${var.vpc_name}-ELBSG"
   description = "Security Group for the ELB in Public Subnet"
   vpc_id      = aws_vpc.myvpc.id
 
@@ -63,7 +63,7 @@ resource "aws_security_group" "ELBSG" {
   }
 
   tags = {
-    Name = "ELBSG"
+    Name = "${var.vpc_name}-ELBSG"
   }
 
 }
@@ -98,7 +98,7 @@ resource "aws_security_group" "BastionSG" {
   }
 
   tags = {
-    Name = "BastionSG"
+    Name = "${var.vpc_name}-BastionSG"
   }
 
 }
